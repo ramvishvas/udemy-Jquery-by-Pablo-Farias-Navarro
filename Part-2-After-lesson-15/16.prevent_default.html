@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <style>
+        body {
+            background-color: #efefef;
+            padding: 50px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $('#keydown').on('keydown', function () {
+                console.log('keydown');
+                let txt = $(this).val();
+                $('#keydown-message').text('Please to meet you, ' + txt);
+            })
+
+            $('#keyup').on('keyup', function () {
+                console.log('keyup');
+                let txt = $(this).val();
+                $('#keyup-message').text('Please to meet you, ' + txt);
+            })
+
+            $('a').on('click', (event) => {
+                event.preventDefault();
+                $('#keydown-message').text('that is fine');
+            })
+        })
+    </script>
+
+</head>
+
+<body>
+    <input type="text" name="name" id="keydown" placeholder="Tell me your name">
+    <div id="keydown-message">
+    </div>
+    <a href="http://www.primathon.in" target="_blank">I don't want to tell my name</a>
+    <br>
+    <br>
+    <input type="text" name="name" id="keyup">
+    <div id="keyup-message">
+    </div>
+</body>
+
+</html>

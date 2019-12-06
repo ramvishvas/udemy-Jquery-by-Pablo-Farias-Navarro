@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Store</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <style>
+        body {
+            background-color: #efefef;
+        }
+
+        #admin-container,
+        #container {
+            background-color: #fff;
+            margin: 24px;
+            padding: 24px;
+        }
+
+        .item {
+            width: 200px;
+            background-color: #ddd;
+            padding: 8px;
+            margin: 8px;
+            float: left;
+        }
+
+        .item img {
+            width: 100%;
+        }
+
+        .item .name {
+            font-size: 24px;
+        }
+
+        .item .price {
+            margin: 8px 0;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $('#create_new').on('click', () => {
+                let name = $('#input_new').val();
+                $('#input_new').val('');
+                console.log(name);
+                let item = `<div class="item">
+                    <div class="name">${name}</div>
+                    <img src="beach.jpg" alt="beack">
+                    <div class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat nostrum, qui
+                        veritatis facilis molestias vitae dolores voluptatum voluptas mollitia iste voluptatibus illum maiores
+                        earum adipisci? Maxime praesentium eveniet sint at?</div>
+                    <div class="price">$499.00</div>
+                    <button>Add to cart</button>
+                    <button class="item_remove">Remove</button>
+                    <br>
+                    <a href="#">More info</a>
+                    <div class="more-info">Lorem, ipsum dolor sit amet</div>
+                </div>`;
+
+                $('#container').prepend(item);
+            })
+
+            $('#container').on('click', '.item_remove', function () {
+                $(this).parent().remove()
+            });
+        })
+    </script>
+
+</head>
+
+<body>
+    <div id="admin-container">
+        <input type="text" name="name" id="input_new">
+        <button id="create_new">Add</button>
+    </div>
+    <div id="container">
+        <div class="item">
+            <div class="name">New Delhi</div>
+            <img src="beach.jpg" alt="beack">
+            <div class="description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat nostrum, qui
+                veritatis facilis molestias vitae dolores voluptatum voluptas mollitia iste voluptatibus illum maiores
+                earum adipisci? Maxime praesentium eveniet sint at?</div>
+            <div class="price">$499.00</div>
+            <button>Add to cart</button>
+            <button class="item_remove">Remove</button>
+            <br>
+            <a href="#">More info</a>
+            <div class="more-info">Lorem, ipsum dolor sit amet</div>
+        </div>
+
+        <br style="clear: left;" />
+    </div>
+</body>
+
+</html>
